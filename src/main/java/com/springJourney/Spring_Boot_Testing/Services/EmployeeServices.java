@@ -24,6 +24,15 @@ public class EmployeeServices {
         this.employeeRepository = employeeRepository;
 
     }
+
+
+    public EmployeeDTO getEmpById(int id){
+        EmployeeEntity employeeEntity= employeeRepository.findById(id)
+                .orElseThrow(()-> new
+                        NoSuchElementException("No such Element Found by id : "+id));
+        return modelMapper.map(employeeEntity,EmployeeDTO.class);
+    }
+
     public EmployeeDTO addEmp(EmployeeDTO employeeDTO) {
         EmployeeEntity obj=modelMapper.map(employeeDTO,EmployeeEntity.class);
         EmployeeEntity employeeEntity=employeeRepository.save(obj);
