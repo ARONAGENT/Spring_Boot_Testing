@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Objects;
+
 @Entity
 @Table(name="employee")
 @Getter
@@ -23,4 +25,15 @@ public class EmployeeEntity {
 
     private float salary;
 
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        EmployeeEntity that = (EmployeeEntity) o;
+        return Float.compare(salary, that.salary) == 0 && Objects.equals(empId, that.empId) && Objects.equals(empNm, that.empNm) && Objects.equals(email, that.email);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(empId, empNm, email, salary);
+    }
 }

@@ -23,6 +23,11 @@ public class EmployeeController {
         return "Rest Api Working Successfully";
     }
 
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<EmployeeDTO> getEmployeeByID(@PathVariable int id){
+        return ResponseEntity.ok(empServ.getEmpById(id));
+    }
+
     @GetMapping(path = "/all")
     public ResponseEntity<List<EmployeeDTO>> allEmployee(){
         return ResponseEntity.ok(empServ.allEmployee());

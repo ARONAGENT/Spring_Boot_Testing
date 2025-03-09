@@ -3,6 +3,7 @@ package com.springJourney.Spring_Boot_Testing.Services;
 
 import com.springJourney.Spring_Boot_Testing.Dtos.EmployeeDTO;
 import com.springJourney.Spring_Boot_Testing.Entities.EmployeeEntity;
+import com.springJourney.Spring_Boot_Testing.Exceptions.ResourceNotFoundException;
 import com.springJourney.Spring_Boot_Testing.Repositories.EmployeeRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
@@ -29,7 +30,7 @@ public class EmployeeServices {
     public EmployeeDTO getEmpById(int id){
         EmployeeEntity employeeEntity= employeeRepository.findById(id)
                 .orElseThrow(()-> new
-                        NoSuchElementException("No such Element Found by id : "+id));
+                        ResourceNotFoundException("No such Element Found by id : "+id));
         return modelMapper.map(employeeEntity,EmployeeDTO.class);
     }
 
