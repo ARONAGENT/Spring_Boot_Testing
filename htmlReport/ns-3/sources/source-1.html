@@ -1,0 +1,155 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8"> 
+  <title>Coverage Report > EmployeeController</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">com.springJourney.Spring_Boot_Testing.Controllers</a>
+</div>
+
+<h1>Coverage Summary for Class: EmployeeController (com.springJourney.Spring_Boot_Testing.Controllers)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">EmployeeController</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    28.6%
+  </span>
+  <span class="absValue">
+    (2/7)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    33.3%
+  </span>
+  <span class="absValue">
+    (3/9)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package com.springJourney.Spring_Boot_Testing.Controllers;
+&nbsp;
+&nbsp;
+&nbsp;import com.springJourney.Spring_Boot_Testing.Dtos.EmployeeDTO;
+&nbsp;import com.springJourney.Spring_Boot_Testing.Services.EmployeeServices;
+&nbsp;import org.springframework.http.HttpStatus;
+&nbsp;import org.springframework.http.ResponseEntity;
+&nbsp;import org.springframework.web.bind.annotation.*;
+&nbsp;
+&nbsp;import java.util.List;
+&nbsp;
+&nbsp;@RestController
+&nbsp;@RequestMapping(path=&quot;/employees&quot;)
+&nbsp;public class EmployeeController {
+&nbsp;
+&nbsp;    private final EmployeeServices empServ;
+<b class="fc">&nbsp;    public EmployeeController(EmployeeServices empServ) {</b>
+<b class="fc">&nbsp;        this.empServ = empServ;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @GetMapping(path=&quot;/info&quot;)
+&nbsp;    public String firstEmp(){
+<b class="nc">&nbsp;        return &quot;Rest Api Working Successfully&quot;;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @GetMapping(path = &quot;/{id}&quot;)
+&nbsp;    public ResponseEntity&lt;EmployeeDTO&gt; getEmployeeByID(@PathVariable int id){
+<b class="fc">&nbsp;        return ResponseEntity.ok(empServ.getEmpById(id));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @GetMapping(path = &quot;/all&quot;)
+&nbsp;    public ResponseEntity&lt;List&lt;EmployeeDTO&gt;&gt; allEmployee(){
+<b class="nc">&nbsp;        return ResponseEntity.ok(empServ.allEmployee());</b>
+&nbsp;    }
+&nbsp;    @PostMapping(path=&quot;/add&quot;)
+&nbsp;    public ResponseEntity&lt;EmployeeDTO&gt; addEmployee(@RequestBody  EmployeeDTO employeeDTO){
+<b class="nc">&nbsp;        EmployeeDTO employeeDTO1=empServ.addEmp(employeeDTO);</b>
+<b class="nc">&nbsp;        return new ResponseEntity&lt;&gt;(employeeDTO1, HttpStatus.CREATED);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @PutMapping(path = &quot;/update/{empId}&quot;)
+&nbsp;    public ResponseEntity&lt;EmployeeDTO&gt; updateEmployee(@PathVariable int empId, @RequestBody EmployeeDTO employeeDTO){
+<b class="nc">&nbsp;        return ResponseEntity.ok(empServ.updateEmp(empId,employeeDTO));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @DeleteMapping(path = &quot;/delete/{empId}&quot;)
+&nbsp;    public ResponseEntity&lt;EmployeeDTO&gt; deleteByEmployeeID(@PathVariable int empId) {
+<b class="nc">&nbsp;        return empServ.deleteEmployee(empId);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-03-10 01:39</div>
+</div>
+</body>
+</html>

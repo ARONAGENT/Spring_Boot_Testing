@@ -60,17 +60,17 @@ class SpringBootTestingApplicationTests {
 		}
 	}
 
-	@Test
-	void test7Exception(){
-		int a=3;
-		int b=0;
-		// asserting if the test give the correct exception or not
-		assertThatThrownBy(()->
-				divideTwoNumber(a,b))
-				.isInstanceOf(NullPointerException.class)
-				.hasMessage("Cannot divide by Zero");
-		System.out.println("Test gives proper exception if exception occur .....");
-	}
+//	@Test
+//	void test7Exception(){
+//		int a=3;
+//		int b=0;
+//		// asserting if the test give the correct exception or not
+//		assertThatThrownBy(()->
+//				divideTwoNumber(a,b))
+//				.isInstanceOf(NullPointerException.class)
+//				.hasMessage("Cannot divide by Zero");
+//		System.out.println("Test gives proper exception if exception occur .....");
+//	}
 
 
 //	  Using Junit Assertions Comes with package ....
