@@ -34,6 +34,8 @@ This project focuses on implementing various testing methodologies in a Spring B
    - Generating test coverage reports.
    - Using tools like Jacoco for analysis.
 
+### Notes -> [Spring Boot Testing.pdf](https://github.com/user-attachments/files/19169944/Spring.Boot.Testing.pdf)
+
 ---
 ## Execution and Images
 
@@ -75,6 +77,23 @@ This project focuses on implementing various testing methodologies in a Spring B
 
 11. AssertJGivingWrongException
 ![11 AssertJGivingWrongException](https://github.com/user-attachments/assets/649b7b90-fb86-424e-a3bc-08b4422100b8)
+
+### **2. Test Container Setup with Docker**
+## Initially
+00.ConfigureInMemoryforTesting Using @DataJpaTest
+<br>
+
+![00 ConfigureInMemoryforTesting Using @DataJpaTest](https://github.com/user-attachments/assets/248d8cf5-6752-47e7-90b0-315928337cbf)
+<br>
+
+## Then
+<br>
+01.TestContainers using Docker
+<br>
+
+https://github.com/user-attachments/assets/ed28adc7-f694-4e73-941c-4350481be1e3
+
+
 
 ### **2. Integration Testing (SpringBootTest)**
 - Testing API endpoints with `@SpringBootTest`.
